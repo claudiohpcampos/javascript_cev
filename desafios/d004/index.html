@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Troco</title>
+    <style>
+        body{
+            font: 20px Arial, sans-serif;
+        }
+        #bto{
+            font: 15px Arial, sans-serif;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculando o Troco</h1>
+    <button onclick="comprar()" id="bto">Comprar produto</button>
+    <script>
+        function comprar() {
+            var prod = window.prompt('Que produto você está comprando?')
+            var valor = window.prompt(`Quanto custa ${prod} que você está comprando?`)
+            var pagar = window.prompt(`Qual o valor que você deu para pagar ${prod}?`)
+            var troco = pagar - valor
+            window.alert(`Você comprou ${prod} que custa R$ ${valor},00.\nDeu R$ ${pagar},00 em dinheiro e vai receber de R$ ${troco},00 troco.\nVolte Sempre!`)
+        }
+    </script>
+</body>
+</html>

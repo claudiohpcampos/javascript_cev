@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situação do aluno</title>
+    <style>
+        body {
+            font: 20px Arial, sans-serif;
+        }
+        #btn {
+            font: 20px Arial, sans-serif;
+            padding: 13px;
+        }
+        #apv {
+            color: green;
+            background-color: rgb(122, 206, 122);
+        }
+        #rcp {
+            color: rgb(255, 196, 0);
+            background-color: rgb(238, 238, 178);
+        }
+        #rpv {
+            color: rgb(161, 8, 8);
+            background-color: rgb(204, 130, 130);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Situação do aluno</h1>
+        <button onclick="clicar()" id="btn">Entrar com as notas</button>
+    </div>
+    <div id="res">
+        <p>Clique no botão acima para informar as notas do aluno</p>
+    </div>
+    <script>
+        var res = window.document.getElementById('res')
+        function clicar() {
+            var nome = window.prompt('Qual é o nome do aluno?')
+            var nota1 = Number(window.prompt(`Primeira nota de ${nome}:`))
+            var nota2 = Number(window.prompt(`Segunda nota de ${nome}:`))
+            var media = (nota1 + nota2)/2
+            if (media > 6.0) {
+                res.innerHTML = `<h2>Analisando a situação de ${nome}</h2>`
+                res.innerHTML += `<p>Com as notas ${nota1} e ${nota2}, a <strong>média é ${media}</strong></p>`
+                res.innerHTML += '<p>Com média acima de 6.0, o aluno está <mark id="apv">APROVADO</mark></p>'
+            }
+            if (media == 3.0 || media <= 6.0) {
+                res.innerHTML = `<h2>Analisando a situação de ${nome}</h2>`
+                res.innerHTML += `<p>Com as notas ${nota1} e ${nota2}, a <strong>média é ${media}</strong></p>`
+                res.innerHTML += '<p>Com média 3.0 e 6.0, o aluno está em <mark id="rcp">RECUPERAÇÃO</mark></p>'
+            } 
+            if (media < 3.0) {
+                res.innerHTML = `<h2>Analisando a situação de ${nome}</h2>`
+                res.innerHTML += `<p>Com as notas ${nota1} e ${nota2}, a <strong>média é ${media}</strong></p>`
+                res.innerHTML += '<p>Com média abaixo de 3.0, o aluno está <mark id="rpv">REPROVADO</mark></p>'
+            }
+        }
+    </script>
+</body>
+</html>
